@@ -20,6 +20,8 @@ images = []
 for f in os.listdir(dir_path):
     if f.endswith(ext):
         images.append(f)
+images.sort(key=lambda x: os.path.getctime(os.path.join(dir_path, x)))
+print(images)
 
 # Determine the width and height from the first image
 image_path = os.path.join(dir_path, images[0])
